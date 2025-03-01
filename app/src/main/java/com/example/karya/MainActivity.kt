@@ -40,17 +40,17 @@ class MainActivity : AppCompatActivity() {
         weeklyProgress=findViewById(R.id.txtWeeklyProgress)
         monthlyProgress=findViewById(R.id.txtMonthlyProgress)
 
-        //
+        //Initializing and setting progress value for the progress bars
         var progressValue = 75
         dailyTaskProgressIndicator.setProgress(progressValue,true)
         weeklyGoalsProgressIndicator.setProgress(progressValue,true)
         monthlyGoalsProgressIndicator.setProgress(progressValue,true)
-        //
+        //setting progress text
         dailyProgress.text = "$progressValue%"
         weeklyProgress.text = "$progressValue%"
         monthlyProgress.text = "$progressValue%"
 
-        //
+        //Initializing daily task layout and setting dialog on its click
         val dailyLayout = findViewById<CardView>(R.id.cardDailyTask)
         dailyLayout.setOnClickListener {
 //            Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
