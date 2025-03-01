@@ -5,5 +5,22 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Karya" parent="Base.Theme.Karya" />
+    <style name="Theme.Karya" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorSecondary">@color/secondary</item>
+
+        <!-- Background & Surface -->
+        <item name="android:colorBackground">@color/background_light</item>
+        <item name="colorSurface">@color/surface_light</item>
+
+        <!-- Text Colors -->
+        <item name="android:textColorPrimary">@color/text_light</item>
+        <item name="android:textColorSecondary">@color/secondary</item>
+
+        <!-- Status & Navigation Bar -->
+        <item name="android:statusBarColor">@color/primary_variant</item>
+        <item name="android:navigationBarColor">@color/background_light</item>
+    </style>
 </resources>

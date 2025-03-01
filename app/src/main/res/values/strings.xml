@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Karya</string>
+
+    <string name="Tasks">Tasks</string>
+    <string name="Goals">Goals</string>
+    <string name="Reminders">Reminders</string>
+    <string name="Daily_Tasks">Daily Tasks</string>
+    <string name="Monthly_Goals">Monthly Goals</string>
+    <string name="Weekly_Goals">Weekly Goals</string>
+    <string name="Upcoming_Events">Upcoming Events</string>
+    <string name="Custom_taskList">Create custom task list</string>
 </resources>

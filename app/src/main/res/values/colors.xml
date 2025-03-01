@@ -3,12 +3,25 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="primary">#03FCBA</color> <!-- Bright Aqua Green -->
-    <color name="background_dark">#070707</color> <!-- Near Black -->
-    <color name="gray">#8A8A8A</color> <!-- Medium Gray -->
-    <color name="accent_light">#B3FEEA</color> <!-- Soft Aqua -->
-    <color name="error">#D7263D</color> <!-- Bright Red -->
-    <color name="warning">#F4743B</color> <!-- Warm Orange -->
-    <color name="background_light">#F8FFFD</color> <!-- Soft White -->
+    <!-- Primary Colors -->
+    <color name="primary">#03FCBA</color>  <!-- Teal -->
+    <color name="primary_variant">#070707</color>  <!-- Almost Black -->
+
+    <!-- Background Colors -->
+    <color name="background_light">#F8FFFD</color>  <!-- Off White (Light Mode) -->
+    <color name="background_dark">#070707</color>  <!-- Almost Black (Dark Mode) -->
+
+    <!-- Surface Colors -->
+    <color name="surface_light">#FFFFFF</color>  <!-- White -->
+    <color name="surface_dark">#8A8A8A</color>  <!-- Gray -->
+
+    <!-- Text Colors -->
+    <color name="text_light">#070707</color>  <!-- Black -->
+    <color name="text_dark">#F8FFFD</color>  <!-- Off White -->
+
+    <!-- Secondary & Accent Colors -->
+    <color name="secondary">#B3FEEA</color>  <!-- Mint Green -->
+    <color name="error">#D7263D</color>  <!-- Red -->
+    <color name="warning">#F4743B</color>  <!-- Orange -->
 
 </resources>
