@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#03FCBA</color> <!-- Bright Aqua Green -->
+    <color name="background_dark">#070707</color> <!-- Near Black -->
+    <color name="gray">#8A8A8A</color> <!-- Medium Gray -->
+    <color name="accent_light">#B3FEEA</color> <!-- Soft Aqua -->
+    <color name="error">#D7263D</color> <!-- Bright Red -->
+    <color name="warning">#F4743B</color> <!-- Warm Orange -->
+    <color name="background_light">#F8FFFD</color> <!-- Soft White -->
+
 </resources>
