@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import org.w3c.dom.Text
 
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        //Declaring all the views
         dailyTaskProgressIndicator = findViewById(R.id.cpiDailyTask)
         weeklyGoalsProgressIndicator = findViewById(R.id.cpiWeeklyGoals)
         monthlyGoalsProgressIndicator = findViewById(R.id.cpiMonthlyGoals)
@@ -38,19 +40,24 @@ class MainActivity : AppCompatActivity() {
         weeklyProgress=findViewById(R.id.txtWeeklyProgress)
         monthlyProgress=findViewById(R.id.txtMonthlyProgress)
 
+        //
         var progressValue = 75
         dailyTaskProgressIndicator.setProgress(progressValue,true)
         weeklyGoalsProgressIndicator.setProgress(progressValue,true)
         monthlyGoalsProgressIndicator.setProgress(progressValue,true)
-
+        //
         dailyProgress.text = "$progressValue%"
         weeklyProgress.text = "$progressValue%"
         monthlyProgress.text = "$progressValue%"
 
+        //
         val dailyLayout = findViewById<CardView>(R.id.cardDailyTask)
         dailyLayout.setOnClickListener {
-            Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
+            val checklistDialog=CheckListDialogFragment()
+            checklistDialog.show(supportFragmentManager,"ChecklistDialog")
         }
+
 
 
     }
