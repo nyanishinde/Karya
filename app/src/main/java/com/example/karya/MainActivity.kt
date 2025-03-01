@@ -58,7 +58,12 @@ class MainActivity : AppCompatActivity() {
             checklistDialog.show(supportFragmentManager,"ChecklistDialog")
         }
 
-
+        //Initializing Upcoming Events layout and setting dialog on its click
+        val upcomingEventsLayout = findViewById<CardView>(R.id.cardUpcomingEvents)
+        upcomingEventsLayout.setOnClickListener {
+            val reminderDialog = ReminderDialogFragment()
+            reminderDialog.show(supportFragmentManager,"ReminderDialog")
+        }
 
     }
 }

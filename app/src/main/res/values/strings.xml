@@ -14,4 +14,9 @@
     <string name="Add_more_tasks">+ Add more tasks</string>
     <string name="Done">Done</string>
     <string name="Cancel">Cancel</string>
+
+    <string name="Set_a_reminder">Set a reminder</string>
+    <string name="Add_title_here">Add title here</string>
+    <string name="Description">Description</string>
+    <string name="Time">9:30 AM</string>
 </resources>
