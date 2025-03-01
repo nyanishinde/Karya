@@ -9,4 +9,9 @@
     <string name="Weekly_Goals">Weekly Goals</string>
     <string name="Upcoming_Events">Upcoming Events</string>
     <string name="Custom_taskList">Create custom task list</string>
+    <string name="date">01/01/2025</string>
+    <string name="Task_counter">4/7</string>
+    <string name="Add_more_tasks">+ Add more tasks</string>
+    <string name="Done">Done</string>
+    <string name="Cancel">Cancel</string>
 </resources>

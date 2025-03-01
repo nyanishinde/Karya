@@ -92,7 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Tasks"
-                    android:textColor="@color/surface_dark"
+                    android:textColor="@color/text_hint"
                     android:fontFamily="@font/lato_regular"
                     android:textSize="12sp" />
                 <TextView
@@ -169,7 +169,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Goals"
-                    android:textColor="@color/surface_dark"
+                    android:textColor="@color/text_hint"
                     android:fontFamily="@font/lato_regular"
                     android:textSize="12sp" />
                 <TextView
@@ -247,7 +247,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Goals"
-                    android:textColor="@color/surface_dark"
+                    android:textColor="@color/text_hint"
                     android:fontFamily="@font/lato_regular"
                     android:textSize="12sp" />
                 <TextView
@@ -299,7 +299,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Reminders"
-                    android:textColor="@color/surface_dark"
+                    android:textColor="@color/text_hint"
                     android:fontFamily="@font/lato_regular"
                     android:textSize="12sp" />
                 <TextView
@@ -349,7 +349,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Tasks"
-                    android:textColor="@color/surface_dark"
+                    android:textColor="@color/text_hint"
                     android:fontFamily="@font/lato_regular"
                     android:textSize="12sp" />
                 <TextView

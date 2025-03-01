@@ -18,6 +18,7 @@
     <!-- Text Colors -->
     <color name="text_light">#070707</color>  <!-- Black -->
     <color name="text_dark">#F8FFFD</color>  <!-- Off White -->
+    <color name="text_hint">#BABABA</color>
 
     <!-- Secondary & Accent Colors -->
     <color name="secondary">#B3FEEA</color>  <!-- Mint Green -->
