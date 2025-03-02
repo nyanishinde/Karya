@@ -1,4 +1,6 @@
-package com.example.karya;
+package com.example.karya
 
-public class AdapterTaskNames {
+import androidx.recyclerview.widget.RecyclerView
+
+class AdapterTaskNames(private val names:MutableList<String>):RecyclerView.Adapter<AdapterTaskNames.TaskNamesViewHolder>() {
 }
