@@ -22,4 +22,5 @@
 
     <string name="Delete_all">Delete all</string>
     <string name="Mark_all_completed">Mark all completed</string>
+    <string name="sort_by">Sort by</string>
 </resources>
