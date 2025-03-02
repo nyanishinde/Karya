@@ -19,4 +19,7 @@
     <string name="Add_title_here">Add title here</string>
     <string name="Description">Description</string>
     <string name="Time">9:30 AM</string>
+
+    <string name="Delete_all">Delete all</string>
+    <string name="Mark_all_completed">Mark all completed</string>
 </resources>

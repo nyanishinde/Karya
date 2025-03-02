@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/deleteAll"
+        android:title="@string/Delete_all"
+        android:icon="@drawable/delete_4x"/>
+
+    <item android:id="@+id/allDone"
+        android:title="@string/Mark_all_completed"
+        android:icon="@drawable/tick_square_4x"/>
+</menu>

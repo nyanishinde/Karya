@@ -1,5 +1,6 @@
 package com.example.karya
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -63,6 +64,12 @@ class MainActivity : AppCompatActivity() {
         upcomingEventsLayout.setOnClickListener {
             val reminderDialog = ReminderDialogFragment()
             reminderDialog.show(supportFragmentManager,"ReminderDialog")
+        }
+
+        //Setting intent to go from this activity to weekly activity
+        val weeklyGoalsLayout = findViewById<CardView>(R.id.cardWeeklyGoals)
+        weeklyGoalsLayout.setOnClickListener {
+            startActivity(Intent(this,WeeklyGoals::class.java))
         }
 
     }

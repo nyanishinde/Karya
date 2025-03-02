@@ -5,6 +5,31 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WeeklyGoals">
+    tools:context=".WeeklyGoals"
+    android:background="@color/background_light">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarWeeklyGoals"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/background_light"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/Weekly_Goals"
+            android:textColor="@color/text_light"
+            android:fontFamily="@font/lato_bold"
+            android:textSize="20sp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
