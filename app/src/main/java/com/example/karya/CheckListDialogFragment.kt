@@ -44,6 +44,11 @@ class CheckListDialogFragment:DialogFragment() {
         //Declaring recyclerview and adapter
         taskRecyclerView = view.findViewById(R.id.rvDailyTasks)
         taskRecyclerView.layoutManager=LinearLayoutManager(requireContext())
+        //Creating and setting adapter for task list recyclerView
+        adapterCheckList = AdapterCheckList(checkListItem){checked,total ->
+            taskCounter.text="$checked/$total"
+        }
+        taskRecyclerView.adapter=adapterCheckList
 
         //Initialing a calender instance to get current date
         val calendar = Calendar.getInstance()
@@ -53,12 +58,6 @@ class CheckListDialogFragment:DialogFragment() {
         val checkListTotalItems=checkListItem.size
         val checkListCheckedItemsCount=checkListItem.count(){it.isChecked}
         taskCounter.text="$checkListCheckedItemsCount/$checkListTotalItems"
-
-        //Creating and setting adapter for task list recyclerView
-        adapterCheckList = AdapterCheckList(checkListItem){checked,total ->
-            taskCounter.text="$checked/$total"
-        }
-        taskRecyclerView.adapter=adapterCheckList
 
         //Setting click event on add more task
         btnAddMoreTasks.setOnClickListener {
