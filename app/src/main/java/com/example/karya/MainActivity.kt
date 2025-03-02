@@ -72,5 +72,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,WeeklyGoals::class.java))
         }
 
+        //Setting the click event on graph
+        val graphLayout = findViewById<LinearLayout>(R.id.llGraph)
+
     }
 }

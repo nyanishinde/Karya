@@ -23,4 +23,7 @@
     <string name="Delete_all">Delete all</string>
     <string name="Mark_all_completed">Mark all completed</string>
     <string name="sort_by">Sort by</string>
+    <string name="num">75%</string>
+    <string name="days_count">Days: 07/30</string>
+    <string name="eg_TaskName">Task Name</string>
 </resources>

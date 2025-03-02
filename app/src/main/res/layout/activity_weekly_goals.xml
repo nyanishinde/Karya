@@ -31,6 +31,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
+        android:id="@+id/llSortBy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -41,6 +42,7 @@
         app:layout_constraintTop_toBottomOf="@id/toolbarWeeklyGoals">
 
         <TextView
+            android:id="@+id/txtSortBy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sort_by"
@@ -48,12 +50,10 @@
             android:textColor="@color/text_light"
             android:fontFamily="@font/lato_regular"/>
         <ImageView
+            android:id="@+id/imgSortBY"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/arrow_down4x"/>
-
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
