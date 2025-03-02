@@ -26,4 +26,6 @@
     <string name="num">75%</string>
     <string name="days_count">Days: 07/30</string>
     <string name="eg_TaskName">Task Name</string>
+    <string name="Monthly_Overview">Monthly Overview</string>
+    <string name="eg_taskProgress">10/30</string>
 </resources>

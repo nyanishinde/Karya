@@ -3,14 +3,24 @@ package com.example.karya
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MonthlyOverview : AppCompatActivity() {
-
+    private lateinit var rvMonthlyProgress : RecyclerView
     private val taskNames= mutableListOf("Running","Meditation","Journaling","Cooking","Study","Gym")
+
+    private val dailyTaskProgressItem = mutableListOf(
+        DCDailyTaskProgressOverview(R.drawable.img_running4x,"Running",23,31),
+        DCDailyTaskProgressOverview(R.drawable.img_meditation4x,"Meditation",26,31),
+        DCDailyTaskProgressOverview(R.drawable.img_journaling4x,"Journaling",4,31),
+        DCDailyTaskProgressOverview(R.drawable.img_cooking4x,"Cooking",15,31),
+        DCDailyTaskProgressOverview(R.drawable.img_study4x,"Study",17,31),
+        DCDailyTaskProgressOverview(R.drawable.img_gym4x,"Gym",7,31)
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,11 +32,24 @@ class MonthlyOverview : AppCompatActivity() {
             insets
         }
 
+        //Creating toolbar and applying it
+        val toolbar = findViewById<Toolbar>(R.id.toolbarOverview)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) //Enabling the back button in toolbar
+        supportActionBar?.title=""//setting title as empty string
+
         //Creating variable for recyclerview and setting layout manager
         val recyclerViewTaskNames : RecyclerView = findViewById(R.id.rvTaskNames)
         recyclerViewTaskNames.layoutManager = LinearLayoutManager(this)
         //Creating adapter and setting it on recycler view
-        val rvAdapter = AdapterTaskNames(taskNames)
-        recyclerViewTaskNames.adapter=rvAdapter
+        val adapterTaskNames = AdapterTaskNames(taskNames)
+        recyclerViewTaskNames.adapter=adapterTaskNames
+
+        //Creating recycler view of tasks and setting adapter on it
+        rvMonthlyProgress = findViewById(R.id.rvOverviewTaskProgress)
+        rvMonthlyProgress.layoutManager=LinearLayoutManager(this)
+        val adapterOverview = AdapterTaskMonthlyOverview(dailyTaskProgressItem)
+        rvMonthlyProgress.adapter=adapterOverview
+
     }
 }
