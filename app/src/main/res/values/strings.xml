@@ -34,4 +34,12 @@
     <string name="eg_timing">11:00 am</string>
     <string name="eg_eventDate">17</string>
     <string name="value">Value</string>
+    <string name="add_new_goal">Add new goal</string>
+    <string name="goal_image">Goal image</string>
+    <string name="Enter_goal_name">Enter goal name</string>
+    <string name="Target_days_or_amount">Target: days or amount</string>
+    <string name="set_priority_type">Set priority type</string>
+    <string name="low">Low</string>
+    <string name="med">Medium</string>
+    <string name="high">High</string>
 </resources>
