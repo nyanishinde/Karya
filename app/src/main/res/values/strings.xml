@@ -32,5 +32,6 @@
     <string name="event_name">Board meeting</string>
     <string name="timings">Timings</string>
     <string name="eg_timing">11:00 am</string>
-    <string name="eg_eventdate">17</string>
+    <string name="eg_eventDate">17</string>
+    <string name="value">Value</string>
 </resources>
