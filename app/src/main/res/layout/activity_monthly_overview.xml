@@ -59,6 +59,7 @@
                     app:indicatorSize="140dp"
                     app:trackColor="@color/surface_dark"
                     app:trackThickness="8dp"
+                    app:indicatorDirectionCircular="counterclockwise"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintTop_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -75,19 +76,22 @@
                     app:layout_constraintBottom_toBottomOf="parent">
 
                     <TextView
+                        android:id="@+id/txtTaskPercentage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/num"
-                        android:textSize="24sp"
-                        android:textColor="@color/text_light"
-                        android:fontFamily="@font/lato_regular"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/days_count"
-                        android:textColor="@color/text_hint"
                         android:fontFamily="@font/lato_regular"
-                        android:layout_marginTop="0dp"/>
+                        android:text="@string/num"
+                        android:textColor="@color/text_light"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/txtTaskDays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:fontFamily="@font/lato_regular"
+                        android:text="@string/days_count"
+                        android:textColor="@color/text_hint" />
 
                 </LinearLayout>
 

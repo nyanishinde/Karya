@@ -55,15 +55,15 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
 
-                <com.google.android.material.progressindicator.LinearProgressIndicator
+                <ProgressBar
                     android:id="@+id/taskProgressIndicator"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    app:trackColor="@color/text_hint"
-                    app:indicatorColor="@color/primary"
-                    app:trackThickness="4dp"
-                    app:trackCornerRadius="4dp"
-                    app:indicatorDirectionLinear="leftToRight"/>
+                    android:layout_height="4dp"
+                    android:progressDrawable="@drawable/custom_progressbar"
+                    android:max="100"
+                    android:progress="0"
+                    android:secondaryProgress="100"/>
                 <TextView
                     android:id="@+id/txtTaskProgressDays"
                     android:layout_width="wrap_content"

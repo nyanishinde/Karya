@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.progressindicator.LinearProgressIndicator
@@ -12,12 +13,12 @@ class AdapterTaskMonthlyOverview(private val taskItemList: MutableList<DCDailyTa
     inner class OverViewViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         val taskImage : ImageView = itemView.findViewById(R.id.imgTaskImage)
         val taskName : TextView = itemView.findViewById(R.id.txtTaskName)
-        val progressIndicator : LinearProgressIndicator = itemView.findViewById(R.id.taskProgressIndicator)
+        val progressIndicator : ProgressBar = itemView.findViewById(R.id.taskProgressIndicator)
         val taskProgress : TextView = itemView.findViewById(R.id.txtTaskProgressDays)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OverViewViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_monthly_overview,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_taskprogress,parent,false)
         return OverViewViewHolder(view)
     }
 
