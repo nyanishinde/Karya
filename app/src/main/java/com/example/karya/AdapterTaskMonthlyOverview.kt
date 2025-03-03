@@ -36,6 +36,6 @@ class AdapterTaskMonthlyOverview(private val taskItemList: MutableList<DCDailyTa
         holder.taskImage.setImageResource(item.taskImageResId)
         holder.taskName.text=item.taskName
         holder.taskProgress.text="$performedDays/$totalDays"
-        holder.progressIndicator.progress=progress
+        holder.progressIndicator.setProgress(progress,true)
     }
 }

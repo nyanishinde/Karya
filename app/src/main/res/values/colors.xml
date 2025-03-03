@@ -24,5 +24,7 @@
     <color name="secondary">#B3FEEA</color>  <!-- Mint Green -->
     <color name="error">#D7263D</color>  <!-- Red -->
     <color name="warning">#F4743B</color>  <!-- Orange -->
-
+    <color name="lowPriority">#4CAF50</color>   <!-- green -->
+    <color name="medPriority">#FFC107</color>   <!-- yellow -->
+    <color name="highPriority">#F44336</color>  <!-- red -->
 </resources>
