@@ -28,4 +28,9 @@
     <string name="eg_TaskName">Task Name</string>
     <string name="Monthly_Overview">Monthly Overview</string>
     <string name="eg_taskProgress">10/30</string>
+
+    <string name="event_name">Board meeting</string>
+    <string name="timings">Timings</string>
+    <string name="eg_timing">11:00 am</string>
+    <string name="eg_eventdate">17</string>
 </resources>

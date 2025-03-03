@@ -5,11 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WeeklyGoals"
-    android:background="@color/background_light">
+    tools:context=".MonthlyGoals">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarWeeklyGoals"
+        android:id="@+id/toolbarMonthlyGoals"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/background_light"
@@ -23,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/Weekly_Goals"
+            android:text="@string/Monthly_Goals"
             android:textColor="@color/text_light"
             android:fontFamily="@font/lato_bold"
             android:textSize="20sp"/>
@@ -39,7 +38,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarWeeklyGoals">
+        app:layout_constraintTop_toBottomOf="@id/toolbarMonthlyGoals">
 
         <TextView
             android:id="@+id/txtSortBy"
@@ -69,12 +68,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-    
+
     <ImageButton
         android:id="@+id/btnAddGoals"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/add_btn4x"
         android:scaleType="centerCrop"
         android:background="@drawable/add_btn4x"
         android:layout_marginEnd="20dp"

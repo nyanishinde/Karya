@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Karya"
         tools:targetApi="31">
         <activity
+            android:name=".UpcomingEvents"
+            android:exported="false" />
+        <activity
+            android:name=".MonthlyGoals"
+            android:exported="false" />
+        <activity
             android:name=".MonthlyOverview"
             android:exported="false" />
         <activity

@@ -62,14 +62,19 @@ class MainActivity : AppCompatActivity() {
         //Initializing Upcoming Events layout and setting dialog on its click
         val upcomingEventsLayout = findViewById<CardView>(R.id.cardUpcomingEvents)
         upcomingEventsLayout.setOnClickListener {
-            val reminderDialog = ReminderDialogFragment()
-            reminderDialog.show(supportFragmentManager,"ReminderDialog")
+            startActivity(Intent(this,UpcomingEvents::class.java))
         }
 
         //Setting intent to go from this activity to weekly activity
         val weeklyGoalsLayout = findViewById<CardView>(R.id.cardWeeklyGoals)
         weeklyGoalsLayout.setOnClickListener {
             startActivity(Intent(this,WeeklyGoals::class.java))
+        }
+
+        //Setting intent to go from this activity to monthly activity
+        val monthlyGoalsLayout = findViewById<CardView>(R.id.cardMonthlyGoals)
+        monthlyGoalsLayout.setOnClickListener {
+            startActivity(Intent(this,MonthlyGoals::class.java))
         }
 
         //Setting the click event on graph
