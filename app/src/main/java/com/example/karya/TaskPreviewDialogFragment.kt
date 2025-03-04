@@ -57,6 +57,8 @@ class TaskPreviewDialogFragment:DialogFragment() {
         goalProgress.setProgress(taskProgress,true)
         goalImage.setImageResource(taskImage)
 
+        //Apply the logic to add and subtract the value into the database
+
         btnCancel.setOnClickListener {
             dismiss()
         }
