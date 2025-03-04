@@ -57,9 +57,6 @@ class TaskPreviewDialogFragment:DialogFragment() {
         goalProgress.setProgress(taskProgress,true)
         goalImage.setImageResource(taskImage)
 
-        //Getting update value here and performing either plus or minus
-        val value = updateValue.text.toString().toIntOrNull() ?:0
-
         btnCancel.setOnClickListener {
             dismiss()
         }
