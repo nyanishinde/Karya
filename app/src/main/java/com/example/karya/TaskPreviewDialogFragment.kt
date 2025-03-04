@@ -11,15 +11,31 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
-import org.w3c.dom.Text
 
 class TaskPreviewDialogFragment:DialogFragment() {
+
+    companion object{
+        private const val ARG_TASK_NAME = "task_name"
+        private const val ARG_TASK_IMAGE = "task_image"
+        private const val ARG_TASK_PROGRESS = "task_progress"
+
+        fun newInstance(taskName:String, taskImage:Int, taskProgress:Int):TaskPreviewDialogFragment{
+            val fragment = TaskPreviewDialogFragment()
+            val args = Bundle()
+            args.putString(ARG_TASK_NAME,taskName)
+            args.putInt(ARG_TASK_IMAGE,taskImage)
+            args.putInt(ARG_TASK_PROGRESS,taskProgress)
+            fragment.arguments = args
+            return fragment
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.popup_task_preview,container,false)
 
         //Initializing all the views of popup activity here
+        val goalName : TextView = view.findViewById(R.id.txtTaskName)
         val goalImage : ImageView = view.findViewById(R.id.imgTaskImage)
         val goalProgress : ProgressBar = view.findViewById(R.id.taskProgress)
         val updateValue : EditText = view.findViewById(R.id.edtValue)
@@ -31,11 +47,18 @@ class TaskPreviewDialogFragment:DialogFragment() {
         //Setting goal image here
         goalImage.setImageResource(R.drawable.img_meditation4x)
 
-        //Setting the goal progress here
-        goalProgress.setProgress(70,true)
+        //Retrieving data from arguments
+        val taskName = arguments?.getString(ARG_TASK_NAME) ?:"Default task"
+        val taskImage = arguments?.getInt(ARG_TASK_IMAGE) ?:R.drawable.img_running4x
+        val taskProgress = arguments?.getInt(ARG_TASK_PROGRESS) ?:0
+
+        //Setting retrieved data here
+        goalName.text = taskName
+        goalProgress.setProgress(taskProgress,true)
+        goalImage.setImageResource(taskImage)
 
         //Getting update value here and performing either plus or minus
-
+        val value = updateValue.text.toString().toIntOrNull() ?:0
 
         btnCancel.setOnClickListener {
             dismiss()
@@ -44,7 +67,7 @@ class TaskPreviewDialogFragment:DialogFragment() {
         btnDone.setOnClickListener {
             dismiss()
         }
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return view
     }
 
     override fun onStart() {

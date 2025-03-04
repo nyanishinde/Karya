@@ -39,6 +39,7 @@ class MonthlyGoals : AppCompatActivity() {
 
         //Setting toolbar to have activity title and back button
         toolbar = findViewById(R.id.toolbarMonthlyGoals)
+        setSupportActionBar(toolbar)
         supportActionBar?.title=""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         //getting the back icon to change its color
