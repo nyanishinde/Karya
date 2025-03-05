@@ -15,4 +15,9 @@ class AddGoalDialogFragment:DialogFragment() {
 
         return view
     }
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.setLayout((resources.displayMetrics.widthPixels*0.85).toInt(),ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
+    }
 }
