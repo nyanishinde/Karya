@@ -62,7 +62,7 @@ class WeeklyGoals : AppCompatActivity() {
         imgBtnAdd.setOnClickListener {
             val addGoalDialog = AddGoalDialogFragment()
             addGoalDialog.show(supportFragmentManager,"AddGoalDialog")
-            Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
         }
     }
 

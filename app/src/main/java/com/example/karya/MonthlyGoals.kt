@@ -57,6 +57,8 @@ class MonthlyGoals : AppCompatActivity() {
         imgBtnAdd = findViewById(R.id.btnAddGoals)
         imgBtnAdd.setOnClickListener {
             Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
+            val addNewGoalDialog = AddGoalDialogFragment()
+            addNewGoalDialog.show(supportFragmentManager,"AddNewGoalDialog")
         }
     }
 
