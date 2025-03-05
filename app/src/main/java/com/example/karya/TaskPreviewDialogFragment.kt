@@ -61,12 +61,24 @@ class TaskPreviewDialogFragment:DialogFragment() {
         //Apply the logic to add and subtract the value into the database
         val value = updateValue.text.toString()
         btnPlus.setOnClickListener {
-            Toast.makeText(requireContext(), "$value added to target", Toast.LENGTH_SHORT).show()
+            if (value.isNotEmpty()) {
+                Toast.makeText(requireContext(), "$value added to target", Toast.LENGTH_SHORT)
+                    .show()
+            }else{
+                Toast.makeText(requireContext(), "Please enter a value", Toast.LENGTH_SHORT).show()
+            }
         }
         btnMinus.setOnClickListener {
-            Toast.makeText(requireContext(), "$value subtracted from the target", Toast.LENGTH_SHORT).show()
+            if (value.isNotEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    "$value subtracted from the target",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else{
+                Toast.makeText(requireContext(), "Please enter value", Toast.LENGTH_SHORT).show()
+            }
         }
-
         btnCancel.setOnClickListener {
             dismiss()
         }
