@@ -59,8 +59,8 @@ class TaskPreviewDialogFragment:DialogFragment() {
         goalImage.setImageResource(taskImage)
 
         //Apply the logic to add and subtract the value into the database
-        val value = updateValue.text.toString()
         btnPlus.setOnClickListener {
+            val value = updateValue.text.toString()
             if (value.isNotEmpty()) {
                 Toast.makeText(requireContext(), "$value added to target", Toast.LENGTH_SHORT)
                     .show()
@@ -69,6 +69,7 @@ class TaskPreviewDialogFragment:DialogFragment() {
             }
         }
         btnMinus.setOnClickListener {
+            val value = updateValue.text.toString()
             if (value.isNotEmpty()) {
                 Toast.makeText(
                     requireContext(),
