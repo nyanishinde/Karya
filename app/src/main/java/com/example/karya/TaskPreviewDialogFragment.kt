@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 
 class TaskPreviewDialogFragment:DialogFragment() {
@@ -58,6 +59,13 @@ class TaskPreviewDialogFragment:DialogFragment() {
         goalImage.setImageResource(taskImage)
 
         //Apply the logic to add and subtract the value into the database
+        val value = updateValue.text.toString()
+        btnPlus.setOnClickListener {
+            Toast.makeText(requireContext(), "$value added to target", Toast.LENGTH_SHORT).show()
+        }
+        btnMinus.setOnClickListener {
+            Toast.makeText(requireContext(), "$value subtracted from the target", Toast.LENGTH_SHORT).show()
+        }
 
         btnCancel.setOnClickListener {
             dismiss()
