@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="8dp"
         app:cardUseCompatPadding="true"
-        app:strokeWidth="1.5dp"
+        app:strokeWidth="2dp"
         app:strokeColor="@color/primary"
         android:backgroundTint="@color/surface_light"
         app:layout_constraintStart_toStartOf="parent"
