@@ -87,6 +87,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setWeeklyOverviewChart(){
+        //Initializing all view in the card
         val weeklyOverview : CardView = findViewById(R.id.cardWeeklyOverView)
         val range : TextView = findViewById(R.id.txtRange)
         val barChart : BarChartView = findViewById(R.id.barChart)
@@ -94,6 +95,7 @@ class MainActivity : AppCompatActivity() {
         val followupMessage : TextView = findViewById(R.id.tvFollowupMessage)
         val image : ImageView = findViewById(R.id.imgEmogi)
 
+        //Adding titles and values for the graph
         val barSet = listOf(
             "Mon" to 5.0f,
             "Tue" to 5.3f,
@@ -103,14 +105,16 @@ class MainActivity : AppCompatActivity() {
             "Sat" to 1.0f,
             "Sun" to 0.0f
         )
+        //Setting animation time for the graph
         val animationDuration = 1000L
 
         barChart.animation.duration = animationDuration
         barChart.animate(barSet)
-        barChart.spacing = 80.0f
+        barChart.spacing = 80.0f  //used to set spacing between the bars
         barChart.labelsSize=32.0f
         barChart.labelsFont = ResourcesCompat.getFont(this,R.font.lato_bold)
 
+        //Setting click event on the card
         weeklyOverview.setOnClickListener {
             startActivity(Intent(this,MonthlyOverview::class.java))
         }
