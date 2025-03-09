@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         weeklyProgress=findViewById(R.id.txtWeeklyProgress)
         monthlyProgress=findViewById(R.id.txtMonthlyProgress)
 
+        //This method is used to add all the functionality to the graph shown on the main screen
         setWeeklyOverviewChart()
 
         //Initializing and setting progress value for the progress bars
