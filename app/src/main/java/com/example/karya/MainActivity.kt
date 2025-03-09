@@ -1,16 +1,20 @@
 package com.example.karya
 
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.FragmentManager
+import com.db.williamchart.view.BarChartView
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import org.w3c.dom.Text
 
@@ -40,6 +44,8 @@ class MainActivity : AppCompatActivity() {
         dailyProgress=findViewById(R.id.txtDailyProgress)
         weeklyProgress=findViewById(R.id.txtWeeklyProgress)
         monthlyProgress=findViewById(R.id.txtMonthlyProgress)
+
+        setWeeklyOverviewChart()
 
         //Initializing and setting progress value for the progress bars
         var progressValue = 75
@@ -77,10 +83,36 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,MonthlyGoals::class.java))
         }
 
-        //Setting the click event on graph
-        val graphLayout = findViewById<LinearLayout>(R.id.llGraph)
-        graphLayout.setOnClickListener {
+    }
+
+    fun setWeeklyOverviewChart(){
+        val weeklyOverview : CardView = findViewById(R.id.cardWeeklyOverView)
+        val range : TextView = findViewById(R.id.txtRange)
+        val barChart : BarChartView = findViewById(R.id.barChart)
+        val message : TextView = findViewById(R.id.tvMessage)
+        val followupMessage : TextView = findViewById(R.id.tvFollowupMessage)
+        val image : ImageView = findViewById(R.id.imgEmogi)
+
+        val barSet = listOf(
+            "Mon" to 5.0f,
+            "Tue" to 5.3f,
+            "Wed" to 4.2f,
+            "Thur" to 6.5f,
+            "Fri" to 3.7f,
+            "Sat" to 1.0f,
+            "Sun" to 0.0f
+        )
+        val animationDuration = 1000L
+
+        barChart.animation.duration = animationDuration
+        barChart.animate(barSet)
+        barChart.spacing = 80.0f
+        barChart.labelsSize=32.0f
+        barChart.labelsFont = ResourcesCompat.getFont(this,R.font.lato_bold)
+
+        weeklyOverview.setOnClickListener {
             startActivity(Intent(this,MonthlyOverview::class.java))
         }
     }
+
 }

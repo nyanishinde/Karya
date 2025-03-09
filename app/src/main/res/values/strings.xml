@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Karya</string>
 
+    <string name="Weekly_Overview">Weekly overview</string>
+    <string name="eg_range">Jan 01 - Jan 07</string>
+    <string name="eg_message">You are doing good!</string>
+    <string name="eg_followup_message">You almost reached your daily goals</string>
     <string name="Tasks">Tasks</string>
     <string name="Goals">Goals</string>
     <string name="Reminders">Reminders</string>
@@ -42,4 +46,6 @@
     <string name="low">Low</string>
     <string name="med">Medium</string>
     <string name="high">High</string>
+
+
 </resources>
