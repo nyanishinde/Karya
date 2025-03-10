@@ -27,8 +27,8 @@ class ReminderDialogFragment:DialogFragment() {
 
         //Initializing all views
         val reminderTitle = view.findViewById<EditText>(R.id.edtReminderTitle)
-        val reminderDate = view.findViewById<EditText>(R.id.edtReminderDate)
-        val reminderTime = view.findViewById<EditText>(R.id.edtReminderTime)
+        val reminderDate = view.findViewById<TextView>(R.id.edtReminderDate)
+        val reminderTime = view.findViewById<TextView>(R.id.edtReminderTime)
         val imgBtnTime = view.findViewById<ImageButton>(R.id.imgBtnTime)
         val imgBtnCalender = view.findViewById<ImageButton>(R.id.imgBtnCalender)
         val btnDone = view.findViewById<TextView>(R.id.btnDone)

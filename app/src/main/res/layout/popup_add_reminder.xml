@@ -52,16 +52,16 @@
             android:layout_marginEnd="20dp"
             app:layout_constraintTop_toBottomOf="@id/edtReminderTitle">
 
-            <EditText
+            <TextView
                 android:id="@+id/edtReminderDate"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:maxHeight="52dp"
+                android:maxHeight="48dp"
                 android:background="@color/white"
                 android:hint="@string/date"
+                android:textSize="16sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/lato_regular"
-                android:inputType="date"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -100,16 +100,16 @@
             android:layout_marginEnd="20dp"
             app:layout_constraintTop_toBottomOf="@id/calenderSection">
 
-            <EditText
+            <TextView
                 android:id="@+id/edtReminderTime"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 android:fontFamily="@font/lato_regular"
                 android:hint="@string/Time"
-                android:inputType="time"
                 android:maxHeight="48dp"
                 android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/divider2"
                 app:layout_constraintStart_toStartOf="parent"
