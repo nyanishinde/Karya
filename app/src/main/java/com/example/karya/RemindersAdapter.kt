@@ -36,7 +36,7 @@ class RemindersAdapter:ListAdapter<RemindersDC,RemindersAdapter.ReminderViewHold
 
     override fun onBindViewHolder(holder: ReminderViewHolder, position: Int) {
         val reminder = getItem(position)
-        holder.eventDate.text = reminder.reminderDate
+        holder.eventDate.text = reminder.reminderDate.substring(0,2)
         holder.eventTitle.text = reminder.reminderName
         holder.eventTime.text = reminder.reminderTime
     }

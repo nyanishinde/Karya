@@ -9,10 +9,14 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProvider
 import java.util.Calendar
 
 class ReminderDialogFragment:DialogFragment() {
+
+    private lateinit var remindersViewModel: RemindersViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +46,7 @@ class ReminderDialogFragment:DialogFragment() {
             val datePickerDialog = DatePickerDialog(
                 requireContext(),
                 {_,year,month,dayOfMonth ->
-                    val selectedDate = "$dayOfMonth/${month+1}/$year"
+                    val selectedDate = "$dayOfMonth-${month+1}-$year"
                     reminderDate.setText(selectedDate)
                 },
                 calender.get(Calendar.YEAR),
@@ -69,17 +73,28 @@ class ReminderDialogFragment:DialogFragment() {
 
         //Setting Done and Cancel Button
         btnDone.setOnClickListener {
-            dismiss()
+            //fetching all the values
+            val name=reminderTitle.text.toString().trim()
+            val date = reminderDate.text.toString().trim()
+            val time = reminderTime.text.toString().trim()
+
+            //Initializing view model ob to add values in the database
+            remindersViewModel = ViewModelProvider(requireActivity())[RemindersViewModel::class.java]
+
+            if(name.isNotEmpty() && date.isNotEmpty() && time.isNotEmpty()){
+                val reminder = RemindersDC(reminderName = name, reminderDate = date, reminderTime = time)
+
+                remindersViewModel.upsertReminder(reminder)
+                Toast.makeText(requireContext(), "Reminder added", Toast.LENGTH_SHORT).show()
+                dismiss()
+            }else{
+                Toast.makeText(requireContext(), "Please enter all values", Toast.LENGTH_SHORT).show()
+            }
         }
 
         btnCancel.setOnClickListener {
             dismiss()
         }
-
-        //Extracting all items of reminder
-        val title = reminderTitle.text
-        val time = reminderTime.text
-        val date = reminderDate.text
 
         return view
     }
