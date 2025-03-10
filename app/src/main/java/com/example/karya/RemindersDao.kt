@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
+import androidx.room.Update
 import androidx.room.Upsert
 
 @Dao
@@ -13,6 +14,9 @@ interface RemindersDao {
 
     @Delete
     suspend fun deleteReminder(reminder:RemindersDC)
+
+    @Update
+    suspend fun updateReminder(reminder: RemindersDC)
 
     //Will delete a reminder based on id
     @Query("DELETE FROM reminders WHERE reminderID= :id")

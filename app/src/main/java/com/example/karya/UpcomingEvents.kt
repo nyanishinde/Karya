@@ -9,6 +9,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -16,18 +18,8 @@ class UpcomingEvents : AppCompatActivity() {
 
     private lateinit var addEvent : ImageButton
     private lateinit var rvEvents: RecyclerView
-    private lateinit var eventAdapter: AdapterUpcomingEvents
-    private val eventList = mutableListOf(
-        DCEventDetails("10","Board Meeting","10:00 AM"),
-        DCEventDetails("12","Team Meeting","10:00 AM"),
-        DCEventDetails("13","Group Meeting","10:00 AM"),
-        DCEventDetails("15","Friends Meeting","10:00 AM"),
-        DCEventDetails("18","get to gather","10:00 AM"),
-        DCEventDetails("20","Wedding anniversary","10:00 AM"),
-        DCEventDetails("22","Party","10:00 AM"),
-        DCEventDetails("24","Diwali","10:00 AM"),
-        DCEventDetails("26","Holi","10:00 AM"),
-    )
+    private lateinit var remindersAdapter: RemindersAdapter
+    private lateinit var reminderViewModel: RemindersViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,8 +42,16 @@ class UpcomingEvents : AppCompatActivity() {
         //Declaring recycler view and setting adapter to it
         rvEvents = findViewById(R.id.recyclerViewEvents)
         rvEvents.layoutManager = LinearLayoutManager(this)
-        eventAdapter = AdapterUpcomingEvents(eventList)
-        rvEvents.adapter = eventAdapter
+        remindersAdapter = RemindersAdapter()
+        rvEvents.adapter = remindersAdapter
+
+        //Initialize view model
+        reminderViewModel = ViewModelProvider(this).get(RemindersViewModel::class.java)
+
+        //Observe all reminders
+        reminderViewModel.allReminders.observe(this){reminders ->
+            remindersAdapter.submitList(reminders)
+        }
 
         //Initializing image button to add events
         addEvent = findViewById(R.id.btnAddEvents)
