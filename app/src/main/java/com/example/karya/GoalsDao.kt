@@ -1,5 +1,6 @@
 package com.example.karya
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
@@ -24,15 +25,15 @@ interface GoalsDao {
 
     //get all goals
     @Query("SELECT * FROM user_goals")
-    fun getAllGoals()
+    fun getAllGoals(): LiveData<List<GoalsDC>>
 
     //get goals by priority high
     @Query("SELECT * FROM user_goals ORDER BY goalPriority DESC")
-    fun getAllGoalsByPriorityHighToLow()
+    fun getAllGoalsByPriorityHighToLow(): LiveData<List<GoalsDC>>
 
     //get goals by priority low
     @Query("SELECT * FROM user_goals ORDER BY goalPriority ASC")
-    fun getAllGoalsByPriorityLowToHigh()
+    fun getAllGoalsByPriorityLowToHigh() : LiveData<List<GoalsDC>>
 
     @Query("UPDATE user_goals SET goalTarget = :newTarget where goalId = :id")
     fun updateGoalTargetById(id: Int,newTarget: Int)
