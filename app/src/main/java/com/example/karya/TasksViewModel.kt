@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 
 class TasksViewModel(application: Application): AndroidViewModel(application) {
     private val repository: TasksRepository
-    val allTasks : LiveData<List<TaskDC>>
+    val allTasks : LiveData<List<TasksDC>>
 
     init {
         val taskDao = DBApp.getDatabase(application).tasksDao()
@@ -16,7 +16,7 @@ class TasksViewModel(application: Application): AndroidViewModel(application) {
         allTasks=repository.allTasks
     }
 
-    fun upsertTask(task : TaskDC)=viewModelScope.launch {
+    fun upsertTask(task : TasksDC)=viewModelScope.launch {
         repository.upsertTask(task)
     }
 
