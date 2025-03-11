@@ -19,13 +19,13 @@ class WeeklyGoals : AppCompatActivity() {
     private lateinit var imgBtnAdd : ImageButton
     private lateinit var goalsRecyclerView: RecyclerView
     private val goalsList = mutableListOf(
-        DCGoals("Running",R.drawable.img_running4x,30,R.color.primary),
-        DCGoals("Gym",R.drawable.img_gym4x,45,R.color.warning),
-        DCGoals("Journaling",R.drawable.img_journaling4x,60,R.color.primary),
-        DCGoals("Study",R.drawable.img_study4x,90,R.color.error),
-        DCGoals("Meditation",R.drawable.img_meditation4x,10,R.color.primary),
-        DCGoals("Cooking",R.drawable.img_cooking4x,40,R.color.warning),
-        DCGoals("Cooking",R.drawable.img_cooking4x,40,R.color.warning)
+        DCGoals("Running",R.drawable.img_running,30,R.color.primary),
+        DCGoals("Gym",R.drawable.img_cardio,45,R.color.warning),
+        DCGoals("Journaling",R.drawable.img_journaling,60,R.color.primary),
+        DCGoals("Study",R.drawable.img_study,90,R.color.error),
+        DCGoals("Meditation",R.drawable.img_meditation,10,R.color.primary),
+        DCGoals("Cooking",R.drawable.img_cooking,40,R.color.warning),
+        DCGoals("Coding",R.drawable.img_coding,40,R.color.warning)
     )
 
 

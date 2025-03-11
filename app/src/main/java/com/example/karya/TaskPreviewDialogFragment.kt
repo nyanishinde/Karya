@@ -46,11 +46,11 @@ class TaskPreviewDialogFragment:DialogFragment() {
         val btnDone : TextView = view.findViewById(R.id.txtBtnDone)
 
         //Setting goal image here
-        goalImage.setImageResource(R.drawable.img_meditation4x)
+        goalImage.setImageResource(R.drawable.img_meditation)
 
         //Retrieving data from arguments
         val taskName = arguments?.getString(ARG_TASK_NAME) ?:"Default task"
-        val taskImage = arguments?.getInt(ARG_TASK_IMAGE) ?:R.drawable.img_running4x
+        val taskImage = arguments?.getInt(ARG_TASK_IMAGE) ?:R.drawable.img_running
         val taskProgress = arguments?.getInt(ARG_TASK_PROGRESS) ?:0
 
         //Setting retrieved data here

@@ -24,7 +24,7 @@
                 android:id="@+id/imgTaskImage"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/img_running4x"
+                android:src="@drawable/img_running"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"

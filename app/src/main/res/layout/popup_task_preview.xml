@@ -30,7 +30,7 @@
             android:id="@+id/imgTaskImage"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:background="@drawable/img_meditation4x"
+            android:background="@drawable/img_meditation"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

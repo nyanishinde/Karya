@@ -24,13 +24,13 @@ class MonthlyOverview : AppCompatActivity() {
     private val taskNames= mutableListOf("Running","Meditation","Journaling","Cooking","Study","Gym")
 
     private val dailyTaskProgressItem = mutableListOf(
-        DCDailyTaskProgressOverview(R.drawable.img_running4x,"Running",23,31),
-        DCDailyTaskProgressOverview(R.drawable.img_meditation4x,"Meditation",26,31),
-        DCDailyTaskProgressOverview(R.drawable.img_journaling4x,"Journaling",4,31),
-        DCDailyTaskProgressOverview(R.drawable.img_cooking4x,"Cooking",15,31),
-        DCDailyTaskProgressOverview(R.drawable.img_study4x,"Study",17,31),
-        DCDailyTaskProgressOverview(R.drawable.img_gym4x,"Gym",7,31)
-    )
+        DCDailyTaskProgressOverview(R.drawable.img_running,"Running",23,31),
+        DCDailyTaskProgressOverview(R.drawable.img_meditation,"Meditation",26,31),
+        DCDailyTaskProgressOverview(R.drawable.img_journaling,"Journaling",4,31),
+        DCDailyTaskProgressOverview(R.drawable.img_cooking,"Cooking",15,31),
+        DCDailyTaskProgressOverview(R.drawable.img_study,"Study",17,31),
+        DCDailyTaskProgressOverview(R.drawable.img_cardio,"Gym",7,31)
+    ) 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,11 +64,11 @@ class MonthlyOverview : AppCompatActivity() {
         progressDays.text = "$performedDays/$totalDays"
 
         //Creating variable for recyclerview and setting layout manager
-        val recyclerViewTaskNames : RecyclerView = findViewById(R.id.rvTaskNames)
-        recyclerViewTaskNames.layoutManager = LinearLayoutManager(this)
+        val taskNames : RecyclerView = findViewById(R.id.rvTaskNames)
+        taskNames.layoutManager = LinearLayoutManager(this)
         //Creating adapter and setting it on recycler view
-        val adapterTaskNames = AdapterTaskNames(taskNames)
-        recyclerViewTaskNames.adapter=adapterTaskNames
+        val adapterTaskNames = TasksAdapter()
+        taskNames.adapter=adapterTaskNames
 
         //Creating recycler view of tasks and setting adapter on it
         rvMonthlyProgress = findViewById(R.id.rvOverviewTaskProgress)
