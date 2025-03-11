@@ -64,11 +64,11 @@ class MonthlyOverview : AppCompatActivity() {
         progressDays.text = "$performedDays/$totalDays"
 
         //Creating variable for recyclerview and setting layout manager
-        val recyclerViewTaskNames : RecyclerView = findViewById(R.id.rvTaskNames)
-        recyclerViewTaskNames.layoutManager = LinearLayoutManager(this)
+        val taskNames : RecyclerView = findViewById(R.id.rvTaskNames)
+        taskNames.layoutManager = LinearLayoutManager(this)
         //Creating adapter and setting it on recycler view
-        val adapterTaskNames = AdapterTaskNames(taskNames)
-        recyclerViewTaskNames.adapter=adapterTaskNames
+        val adapterTaskNames = TasksAdapter()
+        taskNames.adapter=adapterTaskNames
 
         //Creating recycler view of tasks and setting adapter on it
         rvMonthlyProgress = findViewById(R.id.rvOverviewTaskProgress)
