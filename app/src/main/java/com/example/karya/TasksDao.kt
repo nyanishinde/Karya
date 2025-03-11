@@ -10,11 +10,14 @@ import androidx.room.Upsert
 interface TasksDao {
 
     @Upsert
-    suspend fun addTask(task: TaskDC)
+    suspend fun upsertTask(task: TaskDC)
 
     @Query("DELETE FROM user_tasks WHERE taskId=:id")
     fun deleteTaskById(id: Int)
 
     @Query("SELECT * FROM user_tasks ORDER BY taskName ASC")
     fun getAllTasks(): LiveData<List<TaskDC>>
+
+    @Query("DELETE FROM user_tasks")
+    fun deleteAllTasks()
 }
