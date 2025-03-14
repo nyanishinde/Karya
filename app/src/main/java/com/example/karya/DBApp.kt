@@ -11,6 +11,7 @@ abstract class DBApp:RoomDatabase() {
     abstract fun goalsDao(): GoalsDao
     abstract fun tasksDao(): TasksDao
     abstract fun goalTrackingDao(): GoalTrackingDao
+    abstract fun taskTrackingDao(): TaskTrackingDao
 
     companion object{
         @Volatile
