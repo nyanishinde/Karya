@@ -5,13 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [RemindersDC::class, GoalsDC::class, TasksDC::class, GoalTrackingDC::class], version = 1, exportSchema = false)
+@Database(entities = [RemindersDC::class, GoalsDC::class, TasksDC::class], version = 1)
 abstract class DBApp:RoomDatabase() {
     abstract fun reminderDao():RemindersDao
     abstract fun goalsDao(): GoalsDao
     abstract fun tasksDao(): TasksDao
-    abstract fun goalTrackingDao(): GoalTrackingDao
-    abstract fun taskTrackingDao(): TaskTrackingDao
 
     companion object{
         @Volatile
@@ -23,8 +21,7 @@ abstract class DBApp:RoomDatabase() {
                     context.applicationContext,
                     DBApp::class.java,
                     "app_database"
-                ).fallbackToDestructiveMigration()
-                    .build()
+                ).build()
                 INSTANCE=instance
                 instance
             }
