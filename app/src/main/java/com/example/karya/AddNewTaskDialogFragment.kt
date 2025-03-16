@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 
@@ -11,17 +13,19 @@ class AddNewTaskDialogFragment: DialogFragment() {
 
     private lateinit var btnDone: TextView
     private lateinit var btnCancel: TextView
+    private lateinit var taskImage: ImageView
+    private lateinit var imgAddBtn: ImageView
+    private lateinit var taskName: EditText
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.popup_add_new_task,container,false)
-
 
         btnDone = view.findViewById(R.id.txtBtnDone)
         btnCancel = view.findViewById(R.id.txtBtnCancel)
+        taskImage = view.findViewById(R.id.taskImagePreview)
+        imgAddBtn = view.findViewById(R.id.btnAddImage)
+        taskName = view.findViewById(R.id.edtTaskName)
+
 
         btnDone.setOnClickListener {
             dismiss()
