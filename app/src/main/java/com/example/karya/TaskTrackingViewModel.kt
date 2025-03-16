@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 class TaskTrackingViewModel(application: Application): AndroidViewModel(application) {
     private val repository : TaskTrackingRepository
     init {
-        val trackingDao = DBApp.getDatabase(application).taskTrackingDao()
+        val trackingDao = DBApp.getDatabase(application).taskTrackingDoa()
         repository= TaskTrackingRepository(trackingDao)
     }
 

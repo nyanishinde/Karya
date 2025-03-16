@@ -61,7 +61,8 @@ class CheckListDialogFragment:DialogFragment() {
 
         //Setting click event on add more task
         btnAddMoreTasks.setOnClickListener {
-            openAddMoreTaskDialog()
+            val addTaskDialog = AddNewTaskDialogFragment()
+            addTaskDialog.show(parentFragmentManager,"Add new Task")
         }
 
         btnDone.setOnClickListener {
@@ -81,38 +82,4 @@ class CheckListDialogFragment:DialogFragment() {
         dialog?.window?.setLayout((resources.displayMetrics.widthPixels * 0.85).toInt(),ViewGroup.LayoutParams.WRAP_CONTENT)
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
     }
-
-    //Function to show custom alert dialog to add new task
-    private fun openAddMoreTaskDialog(){
-        val edtTaskName = EditText(requireContext())
-        edtTaskName.setHint("Enter task name")
-        edtTaskName.setTextColor(resources.getColor(R.color.text_light))
-        edtTaskName.setHintTextColor(resources.getColor(R.color.text_hint))
-        edtTaskName.setBackgroundColor(resources.getColor(R.color.background_light))
-        edtTaskName.setPadding(40,20,40,20)
-
-        //creating dialog
-        val dialog = AlertDialog.Builder(requireContext())
-            .setTitle("Add new task") //Adding title to the dialog
-            .setView(edtTaskName)
-            .setPositiveButton("Add"){dialog,_->  //Adding positive button
-                val taskName=edtTaskName.text.toString().trim()
-                if (taskName.isNotEmpty()){
-                    adapterCheckList.addTask(taskName)
-                }
-                dialog.dismiss()
-            }
-            .setNegativeButton("Cancel"){dialog,_->   //Adding negative button
-                dialog.dismiss()
-            }.create()
-
-        //changing the colors of add and cancel button
-        dialog.setOnShowListener {
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(resources.getColor(R.color.text_light))
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(resources.getColor(R.color.text_hint))
-        }
-
-        dialog.show()
-    }
-
 }
