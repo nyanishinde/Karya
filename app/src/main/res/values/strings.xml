@@ -47,6 +47,7 @@
     <string name="med">Medium</string>
     <string name="high">High</string>
 
+    <string name="select_image">Select an Image</string>
     <string name="add_new_task">Add new task</string>
     <string name="task_image">Task image</string>
 
