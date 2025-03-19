@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProvider
 
 class AddNewTaskDialogFragment: DialogFragment() {
 
+    private lateinit var tasksViewModel: TasksViewModel
     private lateinit var btnDone: TextView
     private lateinit var btnCancel: TextView
     private lateinit var taskImage: ImageView
@@ -37,6 +40,18 @@ class AddNewTaskDialogFragment: DialogFragment() {
         }
 
         btnDone.setOnClickListener {
+
+            val newTaskImageResId:Int = selectedImageRes
+            val newTaskName: String = taskName.text.toString()
+            //Initializing taskViewmodel to add values in the database
+            tasksViewModel= ViewModelProvider(requireActivity())[TasksViewModel::class.java]
+
+            if(newTaskName.isNotEmpty()){
+                val newTask= TasksDC(taskName=newTaskName, taskImageResId = newTaskImageResId)
+                tasksViewModel.upsertTask(newTask)
+                Toast.makeText(requireContext(), "New task added", Toast.LENGTH_SHORT).show()
+            }
+
             dismiss()
         }
 
