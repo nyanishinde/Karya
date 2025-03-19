@@ -41,12 +41,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone"
+                android:padding="2dp"
                 android:scaleType="fitCenter"/>
 
             <ImageView
                 android:id="@+id/btnAddImage"
-                android:layout_width="24dp"
-                android:layout_height="24sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="32dp"
                 android:src="@drawable/icon_plus_black4x"
                 android:layout_gravity="center"/>
         </FrameLayout>
