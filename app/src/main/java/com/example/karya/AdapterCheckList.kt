@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 
-//creating an adapter that takes a item list and a lamda function for showing text counter
+//creating an adapter that takes a item list and a Lamda function for showing text counter
 //and it returns a view holder
 class AdapterCheckList(
     private val items:MutableList<DCCheckListItem>,
