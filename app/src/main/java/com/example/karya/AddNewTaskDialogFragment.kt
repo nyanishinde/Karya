@@ -50,9 +50,10 @@ class AddNewTaskDialogFragment: DialogFragment() {
                 val newTask= TasksDC(taskName=newTaskName, taskImageResId = newTaskImageResId)
                 tasksViewModel.upsertTask(newTask)
                 Toast.makeText(requireContext(), "New task added", Toast.LENGTH_SHORT).show()
+                dismiss()
+            }else{
+                Toast.makeText(requireContext(), "Fields cannot be empty", Toast.LENGTH_SHORT).show()
             }
-
-            dismiss()
         }
 
         btnCancel.setOnClickListener {
