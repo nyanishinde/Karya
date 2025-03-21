@@ -23,16 +23,6 @@ class MonthlyGoals : AppCompatActivity() {
     private lateinit var goalTrackingAdapter: WeeklyGoalsAdapter
     private lateinit var goalsViewModel: GoalsViewModel
 
-    private val goalsList = mutableListOf(
-        DCGoals("Running",R.drawable.img_running,30,R.color.primary),
-        DCGoals("Gym",R.drawable.img_cardio,45,R.color.warning),
-        DCGoals("Journaling",R.drawable.img_journaling,60,R.color.primary),
-        DCGoals("Study",R.drawable.img_study,90,R.color.error),
-        DCGoals("Meditation",R.drawable.img_meditation,10,R.color.primary),
-        DCGoals("Cooking",R.drawable.img_cooking,40,R.color.warning),
-        DCGoals("Coding",R.drawable.img_coding,40,R.color.warning)
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
