@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.progressindicator.CircularProgressIndicator
@@ -21,8 +22,8 @@ class MonthlyOverview : AppCompatActivity() {
     private lateinit var progressPercentage : TextView
     private lateinit var progressDays : TextView
     private lateinit var rvMonthlyProgress : RecyclerView
-    private lateinit var
-    private val taskNames= mutableListOf("Running","Meditation","Journaling","Cooking","Study","Gym")
+    private lateinit var tasksViewModel : TasksViewModel
+    private lateinit var taskNamesAdapter : TaskNamesAdapter
 
     private val dailyTaskProgressItem = mutableListOf(
         DCDailyTaskProgressOverview(R.drawable.img_running,"Running",23,31),
@@ -74,8 +75,16 @@ class MonthlyOverview : AppCompatActivity() {
         //Creating recycler view of tasks and setting adapter on it
         rvMonthlyProgress = findViewById(R.id.rvOverviewTaskProgress)
         rvMonthlyProgress.layoutManager=LinearLayoutManager(this)
-        val adapterOverview = AdapterTaskMonthlyOverview(dailyTaskProgressItem)
-        rvMonthlyProgress.adapter=adapterOverview
+        taskNamesAdapter= TaskNamesAdapter()
+        rvMonthlyProgress.adapter=taskNamesAdapter
+
+        //Initializing view model
+        tasksViewModel = ViewModelProvider(this).get(TasksViewModel::class.java)
+
+        //Observing all views
+        tasksViewModel.allTasks.observe(this) {tasks->
+            adapterTaskNames.submitList(tasks)
+        }
 
     }
 

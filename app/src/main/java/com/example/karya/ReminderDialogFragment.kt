@@ -78,7 +78,7 @@ class ReminderDialogFragment:DialogFragment() {
             val date = reminderDate.text.toString().trim()
             val time = reminderTime.text.toString().trim()
 
-            //Initializing view model ob to add values in the database
+            //Initializing view model obj to add values in the database
             remindersViewModel = ViewModelProvider(requireActivity())[RemindersViewModel::class.java]
 
             if(name.isNotEmpty() && date.isNotEmpty() && time.isNotEmpty()){
