@@ -21,6 +21,7 @@ class MonthlyOverview : AppCompatActivity() {
     private lateinit var progressPercentage : TextView
     private lateinit var progressDays : TextView
     private lateinit var rvMonthlyProgress : RecyclerView
+    private lateinit var
     private val taskNames= mutableListOf("Running","Meditation","Journaling","Cooking","Study","Gym")
 
     private val dailyTaskProgressItem = mutableListOf(

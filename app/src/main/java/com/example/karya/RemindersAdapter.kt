@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.w3c.dom.Text
 
 class RemindersAdapter:ListAdapter<RemindersDC,RemindersAdapter.ReminderViewHolder>(DIFF_CALLBACK) {
 
