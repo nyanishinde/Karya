@@ -11,6 +11,6 @@ interface GoalTrackingDao {
     @Upsert
     suspend fun upsertProgress(progress: GoalTrackingDC)
 
-    @Query("SELECT SUM(progressChange) FROM goal_tracking WHERE goalId-:goalId")
+    @Query("SELECT IFNULL(SUM(progressChange),0) FROM goal_tracking WHERE goalId=:goalId")
     fun getTotalProgress(goalId:Int): LiveData<Int>
 }

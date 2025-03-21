@@ -12,12 +12,18 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class WeeklyGoals : AppCompatActivity() {
 
     private lateinit var imgBtnAdd : ImageButton
     private lateinit var goalsRecyclerView: RecyclerView
+
+    private lateinit var goalTrackingAdapter: WeeklyGoalsAdapter
+    private lateinit var goalsViewModel: GoalsViewModel
+
     private val goalsList = mutableListOf(
         DCGoals("Running",R.drawable.img_running,30,R.color.primary),
         DCGoals("Gym",R.drawable.img_cardio,45,R.color.warning),
@@ -54,8 +60,14 @@ class WeeklyGoals : AppCompatActivity() {
 
         //Initializing recyclerview and setting adapter on it
         goalsRecyclerView = findViewById(R.id.rvGoals)
-        val goalsAdapter = AdapterGoals(this,goalsList)
-        goalsRecyclerView.adapter = goalsAdapter
+        goalsRecyclerView.layoutManager= GridLayoutManager(this,3)
+        goalTrackingAdapter = WeeklyGoalsAdapter()
+        goalsRecyclerView.adapter=goalTrackingAdapter
+
+        goalsViewModel= ViewModelProvider(this).get(GoalsViewModel::class.java)
+        goalsViewModel.goalsWithProgress.observe(this) { goals->
+            goalTrackingAdapter.submitList(goals)
+        }
 
         //Initializing image button to add new element
         imgBtnAdd = findViewById(R.id.btnAddGoals)
