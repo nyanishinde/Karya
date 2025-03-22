@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -21,6 +22,8 @@ class CheckListDialogFragment:DialogFragment() {
     private lateinit var btnCancel:TextView
     private lateinit var taskRecyclerView: RecyclerView
     private lateinit var adapterCheckList: AdapterCheckList
+    private lateinit var taskViewModel: TaskTrackingViewModel
+
     private val checkListItem = mutableListOf(
         DCCheckListItem("Study",false),
         DCCheckListItem("Meetings",false),
@@ -45,10 +48,17 @@ class CheckListDialogFragment:DialogFragment() {
         taskRecyclerView = view.findViewById(R.id.rvDailyTasks)
         taskRecyclerView.layoutManager=LinearLayoutManager(requireContext())
         //Creating and setting adapter for task list recyclerView
-        adapterCheckList = AdapterCheckList(checkListItem){checked,total ->
-            taskCounter.text="$checked/$total"
+        adapterCheckList= AdapterCheckList{task,isChecked ->
+            if(isChecked){
+                taskViewModel.insertTaskTracking(task.taskId)
+            }
         }
         taskRecyclerView.adapter=adapterCheckList
+
+        taskViewModel= ViewModelProvider(this).get(TaskTrackingViewModel::class.java)
+        taskViewModel.allTasks.observe(this) { task->
+            adapterCheckList.submitList(task)
+        }
 
         //Initialing a calender instance to get current date
         val calendar = Calendar.getInstance()

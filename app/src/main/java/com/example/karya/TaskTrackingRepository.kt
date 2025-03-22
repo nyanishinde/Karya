@@ -13,4 +13,7 @@ class TaskTrackingRepository(private val taskTrackingDao: TaskTrackingDao) {
     fun getCountOfTaskCompletedOnDate(date: String){
         taskTrackingDao.getCountOfTaskCompletedOnDate(date)
     }
+    suspend fun insertTaskTracking(taskTracking: TaskTrackingDC){
+        taskTrackingDao.insetTaskTracking(taskTracking)
+    }
 }

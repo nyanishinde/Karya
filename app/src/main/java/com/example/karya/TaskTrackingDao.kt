@@ -12,6 +12,9 @@ interface TaskTrackingDao {
     @Upsert
     suspend fun upsertTaskProgress(progress: TaskTrackingDC)
 
+    @Upsert
+    suspend fun insetTaskTracking(task: TaskTrackingDC)
+
     //get monthly progress of each task
     @Query("SELECT COUNT(DISTINCT progressDate) FROM task_tracking WHERE taskId=:taskId AND isCompleted=1 AND strftime('%Y-%m', progressDate) = :yearMonth")
     fun getCompletedDaysInMonth(taskId: Int,yearMonth: String): LiveData<Int>
