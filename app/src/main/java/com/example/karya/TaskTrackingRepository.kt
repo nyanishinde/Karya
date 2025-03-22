@@ -16,4 +16,8 @@ class TaskTrackingRepository(private val taskTrackingDao: TaskTrackingDao) {
     suspend fun insertTaskTracking(taskTracking: TaskTrackingDC){
         taskTrackingDao.insetTaskTracking(taskTracking)
     }
+
+    fun getCompletedTaskIds(date: String): LiveData<List<Int>>{
+        return taskTrackingDao.getCompletedTaskIds(date)
+    }
 }

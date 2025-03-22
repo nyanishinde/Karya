@@ -5,31 +5,35 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import java.sql.Date
-import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Locale
 
 class TaskTrackingViewModel(application: Application): AndroidViewModel(application) {
     private val taskRepository: TasksRepository
-    private val repository : TaskTrackingRepository
+    private val taskTrackingRepository : TaskTrackingRepository
     val allTasks: LiveData<List<TasksDC>>
+    val completedTaskIds: LiveData<List<Int>>
     init {
         val taskDao= DBApp.getDatabase(application).tasksDao()
         val trackingDao = DBApp.getDatabase(application).taskTrackingDoa()
         taskRepository= TasksRepository(taskDao)
-        repository= TaskTrackingRepository(trackingDao)
+        taskTrackingRepository= TaskTrackingRepository(trackingDao)
         allTasks=taskRepository.allTasks
+
+        val date= String.format("%d-%d-%d",
+            Calendar.getInstance().get(Calendar.DAY_OF_MONTH),
+            Calendar.getInstance().get(Calendar.MONTH)+1,
+            Calendar.getInstance().get(Calendar.YEAR))
+        completedTaskIds=taskTrackingRepository.getCompletedTaskIds(date)
     }
 
     fun upsertTaskProgress(progress: TaskTrackingDC) = viewModelScope.launch {
-        repository.upsertTaskProgress(progress)
+        taskTrackingRepository.upsertTaskProgress(progress)
     }
     fun getCompletedDaysInMonth(taskId: Int,yearMonth: String) = viewModelScope.launch {
-        repository.getCompletedDaysInMonth(taskId,yearMonth)
+        taskTrackingRepository.getCompletedDaysInMonth(taskId,yearMonth)
     }
     fun getCountOfTaskCompletedOnDate(date: String) = viewModelScope.launch {
-        repository.getCountOfTaskCompletedOnDate(date)
+        taskTrackingRepository.getCountOfTaskCompletedOnDate(date)
     }
 
     fun insertTaskTracking(taskId: Int) = viewModelScope.launch {
@@ -42,6 +46,6 @@ class TaskTrackingViewModel(application: Application): AndroidViewModel(applicat
             progressDate = currentDate,
             isCompleted = true
         )
-        repository.insertTaskTracking(taskTrackingEntry)
+        taskTrackingRepository.insertTaskTracking(taskTrackingEntry)
     }
 }

@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterCheckList(
-    private val onTaskChecked: (TasksDC,Boolean)->Unit):
+    private val onTaskChecked: (TasksDC,Boolean)->Unit,
+    private val completedTasks: LiveData<List<Int>>):
     ListAdapter<TasksDC, AdapterCheckList.CheckListViewHolder>(TaskDiffCallBack()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -27,15 +29,19 @@ class AdapterCheckList(
         position: Int
     ) {
         val task=getItem(position)
-        holder.bind(task,onTaskChecked)
+        completedTasks.observeForever { completedIds->
+            val isChecked=completedIds.contains(task.taskId)
+            holder.bind(task,isChecked,onTaskChecked)
+        }
     }
 
     class CheckListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val checkBox: CheckBox = itemView.findViewById(R.id.checkBoxItem)
 
-        fun bind(task: TasksDC,onTaskChecked: (TasksDC, Boolean) -> Unit){
+        fun bind(task: TasksDC, isChecked: Boolean, onTaskChecked: (TasksDC, Boolean) -> Unit){
             checkBox.text=task.taskName
             checkBox.setOnCheckedChangeListener(null)
+            checkBox.isChecked=isChecked
 
             checkBox.setOnCheckedChangeListener { _,isChecked ->
                 onTaskChecked(task,isChecked)
