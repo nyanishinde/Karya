@@ -20,4 +20,8 @@ class TaskTrackingRepository(private val taskTrackingDao: TaskTrackingDao) {
     fun getCompletedTaskIds(date: String): LiveData<List<Int>>{
         return taskTrackingDao.getCompletedTaskIds(date)
     }
+
+    fun getCompletedTaskCount(date: String): LiveData<Int>{
+        return taskTrackingDao.getCompletedTasksCount(date)
+    }
 }

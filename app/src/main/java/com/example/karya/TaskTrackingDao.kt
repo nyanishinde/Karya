@@ -23,6 +23,10 @@ interface TaskTrackingDao {
     @Query("SELECT COUNT(*) FROM task_tracking WHERE progressDate=:date")
     fun getCountOfTaskCompletedOnDate(date: String): LiveData<Int>
 
+    //get count of completed task for today
+    @Query("SELECT COUNT(*) FROM task_tracking WHERE progressDate=:date AND isCompleted=1")
+    fun getCompletedTasksCount(date: String): LiveData<Int>
+
     @Query("SELECT taskId FROM task_tracking WHERE progressDate=:date AND isCompleted=1")
     fun getCompletedTaskIds(date: String): LiveData<List<Int>>
 }

@@ -44,30 +44,36 @@ class CheckListDialogFragment:DialogFragment() {
         btnDone=view.findViewById(R.id.tvBtnDone)
         btnCancel=view.findViewById(R.id.tvBtnCancel)
 
+        var totalTasksCount: Int ?=0
+        var completedTasksCount: Int ?=0
+
         //Declaring recyclerview and adapter
         taskRecyclerView = view.findViewById(R.id.rvDailyTasks)
         taskRecyclerView.layoutManager=LinearLayoutManager(requireContext())
-        //Creating and setting adapter for task list recyclerView
-        adapterCheckList= AdapterCheckList{task,isChecked ->
-            if(isChecked){
-                taskViewModel.insertTaskTracking(task.taskId)
-            }
-        }
-        taskRecyclerView.adapter=adapterCheckList
 
         taskViewModel= ViewModelProvider(this).get(TaskTrackingViewModel::class.java)
-        taskViewModel.allTasks.observe(this) { task->
-            adapterCheckList.submitList(task)
+        taskViewModel.completedTaskIds.observe(this) { completedIds->
+            completedTasksCount=completedIds.size.toInt()
+            adapterCheckList= AdapterCheckList(
+                onTaskChecked = {task,isChecked ->
+                    if (isChecked){
+                        taskViewModel.insertTaskTracking(task.taskId)
+                    }
+                },
+                completedTasks = taskViewModel.completedTaskIds
+            )
+            taskRecyclerView.adapter=adapterCheckList
+            taskViewModel.allTasks.observe(this) { tasks->
+                totalTasksCount=tasks.size.toInt()
+                adapterCheckList.submitList(tasks)
+            }
         }
 
         //Initialing a calender instance to get current date
         val calendar = Calendar.getInstance()
         taskDate.text=String.format("%d/%d/%d",calendar.get(Calendar.DAY_OF_MONTH),calendar.get(Calendar.MONTH)+1,calendar.get(Calendar.YEAR))
 
-        //Setting the text of counter
-        val checkListTotalItems=checkListItem.size
-        val checkListCheckedItemsCount=checkListItem.count(){it.isChecked}
-        taskCounter.text="$checkListCheckedItemsCount/$checkListTotalItems"
+        taskCounter.text="$completedTasksCount/$totalTasksCount"
 
         //Setting click event on add more task
         btnAddMoreTasks.setOnClickListener {

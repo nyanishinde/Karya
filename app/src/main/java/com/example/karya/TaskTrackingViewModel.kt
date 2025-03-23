@@ -24,6 +24,7 @@ class TaskTrackingViewModel(application: Application): AndroidViewModel(applicat
             Calendar.getInstance().get(Calendar.MONTH)+1,
             Calendar.getInstance().get(Calendar.YEAR))
         completedTaskIds=taskTrackingRepository.getCompletedTaskIds(date)
+
     }
 
     fun upsertTaskProgress(progress: TaskTrackingDC) = viewModelScope.launch {

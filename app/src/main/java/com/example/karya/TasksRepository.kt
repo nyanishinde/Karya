@@ -17,4 +17,7 @@ class TasksRepository(private val tasksDao: TasksDao) {
         tasksDao.deleteAllTasks()
     }
 
+    fun getAllTasksCount(date: String): LiveData<Int>{
+        return tasksDao.getTotalCountOfTasks()
+    }
 }

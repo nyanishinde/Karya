@@ -19,4 +19,7 @@ interface TasksDao {
 
     @Query("DELETE FROM user_tasks")
     suspend fun deleteAllTasks()
+
+    @Query("SELECT COUNT(*) FROM user_tasks")
+    fun getTotalCountOfTasks(): LiveData<Int>
 }
